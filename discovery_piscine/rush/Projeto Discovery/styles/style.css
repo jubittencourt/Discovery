@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #262A56;
+    --cor-secundaria: #E3CCAE;
+    --cor-terciaria: hsl(20, 3%, 22%);
+    --cor-secao: #1d2146;
+    --fonte-primaria: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Home / Base (Layout com rodapé fixo embaixo) */
+body {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fonte-secundaria);
+}
+
+.cabecalho {
+    padding: 2% 0% 0% 15%;
+}
+.cabecalho__menu {
+    display: flex;
+    gap: 80px;
+}
+.cabecalho__menu__link {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--cor-secundaria);
+    text-decoration: none;
+}
+
+/* Home - Apresentação */
+.apresentacao {
+    flex: 1;
+    padding: 5% 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 82px;
+}
+.apresentacao__conteudo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.apresentacao__conteudo__titulo {
+    font-size: 2.25rem;
+    font-family: var(--fonte-primaria);
+    margin-bottom: 24px; /* <--- Adicionado espaço entre o título e o conteúdo abaixo */
+}
+.apresentacao__conteudo__texto {
+    font-size: 1.5rem;
+}
+.apresentacao__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+.apresentacao__links__subtitulo {
+    font-family: var(--fonte-primaria);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.apresentacao__links__navegacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border: 2px solid var(--cor-terciaria);
+    width: 50%;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 21.5px 0;
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    text-align: center;
+}
+.apresentacao__links__navegacao img {
+    width: 32px;
+}
+
+.apresentacao__imagem {
+    width: 35%;
+    border-radius: 12px;
+}
+
+.rodape {
+    background-color: var(--cor-terciaria);
+    color: var(--cor-secundaria);
+    padding: 24px;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: auto;
+}
+
+/* Currículo - Tela Cheia / Snap */
+.html-snap {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    height: 100vh;
+    overflow-y: scroll;
+}
+.corpo-snap {
+    background-color: var(--cor-secao);
+    display: block;
+    min-height: auto;
+}
+.cabecalho-curriculo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--cor-primaria);
+    z-index: 1000;
+    padding: 1.5% 15%;
+}
+.tela-secao {
+    min-height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8% 15% 5% 15%;
+    background-color: var(--cor-secao);
+    gap: 82px;
+}
+.apresentacao__subtitulo {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.apresentacao__conteudo__lista {
+    font-size: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 14px; /* <--- Espaçamento entre os cursos ajustado para melhor respiro */
+    padding-left: 20px;
+    line-height: 1.5;
+}
+.apresentacao__conteudo__lista a {
+    color: var(--cor-secundaria);
+    font-weight: 600;
+    background-color: var(--cor-terciaria);
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.secao-fundo-preto {
+    justify-content: center;
+}
+.secao-caixa {
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 80%;
+    max-width: 900px;
+    padding: 40px;
+    border-radius: 16px;
+}
+.contato__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--cor-secundaria);
+    width: 180px;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 14px 0;
+    color: var(--cor-secundaria);
+    text-decoration: none;
+}
+
+/* Responsivo */
+@media (max-width: 1200px) {
+    .apresentacao, .tela-secao {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 12% 5% 5% 5%;
+    }
+    .apresentacao__conteudo, .apresentacao__imagem, .secao-caixa {
+        width: 100%;
+    }
+    .cabecalho__menu {
+        gap: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
